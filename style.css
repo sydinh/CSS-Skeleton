@@ -1,0 +1,83 @@
+body { margin: 0; }
+
+.foobar-container,
+.foo-container,
+.bar-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.foobar-container { background: red; }
+.foo-container { background: green; }
+.bar-container { background: blue; }
+
+.foobar,
+.foo,
+.bar {
+  width: 300px;
+  height: 400px;
+  margin: auto;
+}
+
+.foobar {
+  background: red;
+  background: linear-gradient(to right ,rgba(0, 0, 0, 1), rgba(255, 255, 255, 1));
+}
+
+.foo {
+  background: green;
+  background: radial-gradient(circle ,red 25%, yellow 25%, black 50%);
+}
+
+.bar {
+  background: gray;
+  box-shadow: 1px 1px 1px 2px white;
+}
+
+.bar.is-loading .bar__image::before,
+.bar.is-loading .bar__caption-title::before,
+.bar.is-loading .bar__caption-subtitle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(255, 255, 255, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+  transform: translateX(-100%);
+  animation: loading 1.5s infinite;
+}
+
+.bar.is-loading .bar__image::before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 1), rgba(0, 0, 0, 0));
+}
+
+.bar__caption { padding: 10px; }
+
+.bar__image,
+.bar__caption-title,
+.bar__caption-subtitle {
+  position: relative;
+  background: black;
+  overflow: hidden;
+}
+
+.bar__image {
+  width: 100%;
+  height: 60%;
+}
+
+.bar__caption-title {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.bar__caption-subtitle {
+  width: 75%;
+  height: 20px;
+}
+
+@keyframes loading {
+  100% { transform: translateX(100%); }
+}
+
